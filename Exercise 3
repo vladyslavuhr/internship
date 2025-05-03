@@ -1,0 +1,103 @@
+package internship;
+
+abstract class A {
+
+    // # Name : string
+    protected String name;
+
+
+    // a constructor that sets the name value when the object is created
+    public A (String name) {
+        this.name = name;
+    }
+
+
+    // + PrintName() : void
+    public abstract void PrintName();
+}
+
+class B extends A {
+
+    // constructor passes the name to the base class A
+    public B (String name) {
+        super(name);
+    }
+
+
+    // - PrintName(message: string)
+    private void PrintName(String message) {
+        System.out.println("B: " + name + " - " + message);
+    }
+    @Override
+
+
+    // implements the abstract method from A, calling B’s own private method with a default message
+    public void PrintName() {
+        PrintName("default message from B");
+    }
+}
+
+class C extends B {
+
+    // constructor that passes name up to B, which passes it to A
+    public C(String name) {
+        super(name);
+    }
+
+
+    // + PrintName(message: string) : void
+    public void PrintName(String message) {
+        System.out.println("C: " + name + " - " + message);
+    }
+}
+class D extends A {
+    public D(String name) {
+        super(name);
+    }
+    @Override
+    public void PrintName() {
+        System.out.println("D: " + name);
+    }
+}
+
+// main class
+public class task_3 {
+    public static void main(String[] args) {
+
+        // declares a variable b of type A and assign it a B object
+        A b = new B("B");
+        // calls B's PrintName with default message
+        b.PrintName();
+
+        // creates a C object
+        C c = new C("C");
+        // calls its PrintName()
+        c.PrintName("custom message from C");
+
+        // creates a D object
+        A d = new D("D");
+        // calls D's overridden version of PrintName()
+        d.PrintName();
+
+    }
+}
+
+/*
+2.
+* Are you able to directly create a new instance of ObjectA? Please explain your answer.
+
+- No, because abstract means the class is incomplete — it has abstract methods, and Java expects subclasses to provide the actual behavior
+
+* Given an instance of ObjectC, are you able to call the method PrintMessage defined in ObjectB?
+
+- No, because in Java, private methods are not inherited by subclasses, it is also now possible to call super.PrintName(message)
+
+* Try to explain as many key features of object-oriented programming as you can find in this example.
+
+-
+1) encapsulation - hiding internal details and exposing only what’s needed
+2) inheritance - B, C, D get access to A fields and methods
+3) abstraction - hides how things work and only shows what should happen
+4) polymorphism - overriding and abstract types
+5) method overloading - multiple methods in the same class with the same name but different parameters
+*/
