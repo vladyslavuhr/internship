@@ -1,0 +1,24 @@
+package internship;
+import java.util.Random;
+public class task_1 {
+    public static void main(String[] args) {
+
+        Random rand = new Random();
+
+        for (int i = 1; i <= 100; i++) {
+
+            int num = rand.nextInt(100) +1;
+            System.out.println(i + " " + num);
+
+            if (num%7 == 0) {
+                System.out.println("Lucky number!");
+            }
+
+            if (i%5 == 0) {
+                System.out.println("---");
+            }
+
+        }
+    }
+}
+
