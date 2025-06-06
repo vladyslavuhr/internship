@@ -13,7 +13,7 @@
    - *(Comments):*
 
 4. **In what timeframe are you available for the internship?**  
-   - *(Start Date): 16.05.2025*  
+   - *(Start Date): 03.07.2025*  
    - *(End Date): As long as I get the opportunity to work*  
 
 5. **Can you work the entire period, or just part of the specified period?**  
